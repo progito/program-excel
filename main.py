@@ -7,16 +7,20 @@ def merge() -> bool:
     Функция формирования/объединения
     :return: bool
     """
-    df = pd.read_csv(INPUT_FILE, sep=';')
-    if df['PLU'].isnull().any():
-        df = df.dropna(subset=['PLU'])
     try:
+        df = pd.read_csv(INPUT_FILE, sep=';')
+        df['PLU'] = df['PLU'].fillna(method='ffill')
+        if df['SAP_ID'].isnull().any():
+            df = df.dropna(subset=['SAP_ID'])
         df['PLU'] = df['PLU'].astype(int)
-    except ValueError as error:
-        print(f"{error}")
+        result = pd.merge(df[['PLU']], df[['SAP_ID']], how='cross')
+        result.to_csv(OUTPUT_FILE, index=False, sep=';')
+        print(f"Файл успешно сохранен: {OUTPUT_FILE}")
+        return True
+
+    except Exception as error:
+        print(f"Ошибка: {error}")
         return False
-    pd.merge(df[['PLU']], df[['SAP_ID']], how='cross').to_csv(OUTPUT_FILE, index=False, sep=';')
-    return True
 
 if __name__ == '__main__':
     merge()
