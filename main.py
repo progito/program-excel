@@ -18,7 +18,6 @@ def merge() -> bool:
         result.to_csv(OUTPUT_FILE, index=False, sep=';')
         print(f"Файл успешно сохранен: {OUTPUT_FILE}")
         return True
-
     except Exception as error:
         print(f"Ошибка: {error}")
         return False
