@@ -19,3 +19,7 @@
 - У вас появится выходной файл `output`
   
   <img width="278" alt="Снимок экрана 2024-12-25 в 19 09 43" src="https://github.com/user-attachments/assets/7bbb3565-f70a-4f6c-80fc-368c10e78feb" />
+
+**output.csv (пример)**
+
+<img width="278" alt="Снимок экрана 2024-12-25 в 19 11 44" src="https://github.com/user-attachments/assets/545fbe5f-c484-4c07-80db-034453c97221" />
