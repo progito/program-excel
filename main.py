@@ -15,8 +15,7 @@ def merge() -> bool:
     except ValueError as error:
         print(f"{error}")
         return False
-    result = pd.merge(df[['PLU']], df[['SAP_ID']], how='cross')
-    result.to_csv(OUTPUT_FILE, index=False, sep=';')
+    pd.merge(df[['PLU']], df[['SAP_ID']], how='cross').to_csv(OUTPUT_FILE, index=False, sep=';')
     return True
 
 if __name__ == '__main__':
